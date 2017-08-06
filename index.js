@@ -12,7 +12,7 @@ const debug = require('debug')('readlineq');
 
         lineReader.on('line', function (line) {
             debug('Line from file: %s', line);
-            lines.push(line);
+            lines.push(line.trim());
         });
 
         lineReader.on('close', function (err) {
