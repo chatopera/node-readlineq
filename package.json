@@ -1,6 +1,6 @@
 {
   "name": "readlineq",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Read file by lines",
   "main": "index.js",
   "directories": {
@@ -14,7 +14,9 @@
     "url": "git+ssh://git@github.com/Samurais/node-readlineq.git"
   },
   "keywords": [
-    "text"
+    "text",
+    "read-text",
+    "write-text"
   ],
   "author": "Hai Liang Wang <hailiang.hl.wang@gmail.com>",
   "license": "MIT",
