@@ -1,8 +1,8 @@
 /**
  * read lines by file path
  */
-const debug = require('debug')('readlineq');
-const fs = require('fs');
+const debug = require("debug")("readlineq");
+const fs = require("fs");
 
 /**
  * read file into lines
@@ -10,27 +10,27 @@ const fs = require('fs');
  * @return {[type]}           [description]
  */
 function _read(file_path) {
-    var lines = []
-    return new Promise((resolve, reject) => {
-        var lineReader = require('readline').createInterface({
-            input: require('fs').createReadStream(file_path)
-        });
-
-        lineReader.on('line', function(line) {
-            debug('Line from file: %s', line);
-            lines.push(line.trim());
-        });
-
-        lineReader.on('close', function(err) {
-            debug('all lines are read, line size %d', lines.length);
-            resolve(lines);
-        })
-
-        lineReader.on('error', function(err) {
-            debug('error happens', err);
-            reject(err)
-        })
+  var lines = [];
+  return new Promise((resolve, reject) => {
+    var lineReader = require("readline").createInterface({
+      input: require("fs").createReadStream(file_path),
     });
+
+    lineReader.on("line", function (line) {
+      debug("Line from file: %s", line);
+      lines.push(line);
+    });
+
+    lineReader.on("close", function (err) {
+      debug("all lines are read, line size %d", lines.length);
+      resolve(lines);
+    });
+
+    lineReader.on("error", function (err) {
+      debug("error happens", err);
+      reject(err);
+    });
+  });
 }
 
 // const JSONStream = require('JSONStream');
@@ -63,7 +63,7 @@ function _read(file_path) {
 //         );
 //     });
 // }
-// 
+//
 /**
  * Write lines to file
  * @param  {[type]} from_ [description]
@@ -71,16 +71,16 @@ function _read(file_path) {
  * @return {[type]}       [description]
  */
 function _write(lines, to_) {
-    return new Promise((resolve, reject) => {
-        var t = fs.createWriteStream(to_);
-        t.on('open', function(fd) {
-            for (let x of lines) {
-                t.write(x);
-            }
-            t.end();
-            resolve()
-        });
-    })
+  return new Promise((resolve, reject) => {
+    var t = fs.createWriteStream(to_);
+    t.on("open", function (fd) {
+      for (let x of lines) {
+        t.write(x);
+      }
+      t.end();
+      resolve();
+    });
+  });
 }
 
 /**
@@ -89,9 +89,9 @@ function _write(lines, to_) {
  * @param  {[type]} obj       [description]
  * @return {[type]}           [description]
  */
-exports = module.exports = function(file_path, obj) {
-    if (obj) {
-        return _write(obj, file_path)
-    }
-    return _read(file_path);
-}
+exports = module.exports = function (file_path, obj) {
+  if (obj) {
+    return _write(obj, file_path);
+  }
+  return _read(file_path);
+};
