@@ -1,7 +1,7 @@
 {
   "name": "readlineq",
-  "version": "2.0.2",
-  "description": "Read file by lines",
+  "version": "2.0.5",
+  "description": "Read or write file by lines with promise.",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Samurais/node-readlineq.git"
+    "url": "git+ssh://git@github.com/chatopera/node-readlineq.git"
   },
   "keywords": [
     "text",
@@ -21,9 +21,9 @@
   "author": "Hai Liang Wang <hailiang.hl.wang@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Samurais/node-readlineq/issues"
+    "url": "https://github.com/chatopera/node-readlineq/issues"
   },
-  "homepage": "https://github.com/Samurais/node-readlineq#readme",
+  "homepage": "https://github.com/chatopera/node-readlineq#readme",
   "dependencies": {
     "debug": "^2.6.8"
   },

@@ -71,16 +71,11 @@ function _read(file_path) {
  * @return {[type]}       [description]
  */
 function _write(lines, to_) {
-  return new Promise((resolve, reject) => {
-    var t = fs.createWriteStream(to_);
-    t.on("open", function (fd) {
-      for (let x of lines) {
-        t.write(x);
-      }
-      t.end();
-      resolve();
-    });
-  });
+  if (typeof lines === "string") {
+    fs.writeFileSync(to_, lines);
+  } else if (lines.length > 0) {
+    fs.writeFileSync(to_, lines.join(""));
+  }
 }
 
 /**
